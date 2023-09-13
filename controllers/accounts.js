@@ -1,5 +1,5 @@
 const Account = require('../models/account');
-
+const Beneficiary = require('../models/beneficiary');
 module.exports = {
     index,
     newAccount,
@@ -30,7 +30,8 @@ async function create(req, res){
 async function show(req, res){
     try {
         const account = await Account.findById(req.params.id);
-        res.render('accounts/show', {title: 'hello', account})
+        const beneficiaries = await Beneficiary.find({account: account._id});
+        res.render('accounts/show', {title: 'hello', account, beneficiaries})
     } catch(err) {
         console.error(err);
     };

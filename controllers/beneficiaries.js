@@ -3,7 +3,8 @@ const Beneficiary = require('../models/beneficiary');
 
 module.exports = {
     new: newBeneficiary,
-    create
+    create,
+    delete: deleteBeneficiary
 };
 
 
@@ -15,12 +16,13 @@ async function newBeneficiary(req, res){
 
 async function create(req, res){
     const accountId = req.params.id;
-    const { name, birthdate } = req.body;
+    const { name, birthdate, address } = req.body;
 
     try{
         const beneficiary = new Beneficiary({
             account: accountId,
             name,
+            address,
             birthdate
         });
         await beneficiary.save();
@@ -32,6 +34,17 @@ async function create(req, res){
     };
 };
 
+async function deleteBeneficiary(req, res){
+    const beneficiaryId = req.params.id;
+    try{
+        const beneficiary = await Beneficiary.findById(beneficiaryId);
+        const accountId = beneficiary.account;
+        await Beneficiary.findByIdAndRemove(beneficiaryId);
+        res.redirect(`/accounts/${accountId}`);
+    }catch(err){
+        console.error(err)
+    };
+};
 
 
 

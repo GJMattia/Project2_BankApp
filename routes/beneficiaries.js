@@ -7,6 +7,8 @@ router.get('/new/:id', beneficiariesCtrl.new);
 
 router.post('/:id', beneficiariesCtrl.create);
 
+router.delete('/:id', beneficiariesCtrl.delete);
+
 
 module.exports = router;
 

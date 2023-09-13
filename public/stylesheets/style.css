@@ -1,5 +1,6 @@
 html{
   font-size: 80.5%;
+  
 }
 body {
   display: flex;
@@ -27,8 +28,9 @@ footer{
   align-items: center;
   background-color: lawngreen;
   width:100%;
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
+  
 }
 
 .title{

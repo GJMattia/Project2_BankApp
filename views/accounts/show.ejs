@@ -13,5 +13,35 @@
   <a href="/accounts/close" class="red">Close Account</a>
 </div>
 <h1>Beneficiaries</h1>
-
-<%- include('../partials/footer') %>
+<% if (beneficiaries.length) { %>
+<table class="ticket-table">
+  <thead>
+    <tr>
+      <th>Beneficiary Name</th>
+      <th>Beneficiary Birthdate</th>
+      <th>Beneficiary Address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% beneficiaries.forEach((beneficiary) => { %>
+    <tr>
+      <td><%= beneficiary.name %></td>
+      <td><%= beneficiary.birthdate %></td>
+      <td><%= beneficiary.address %></td>
+      <td>
+        <form
+          action="/beneficiaries/<%= beneficiary._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit">Remove</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<h5>CAUTION: removing a beneficiary will take affect immeditetly</h5>
+<% } else { %>
+<h5>This account has no beneficiaries</h5>
+<% } %> <%- include('../partials/footer') %>

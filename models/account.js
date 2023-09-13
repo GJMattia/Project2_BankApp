@@ -6,7 +6,7 @@ const accountSchema = new Schema({
     accountType: {
         type: String,
         required: true,
-        enum: ['Checking', 'Savings']
+        enum: ['Checking', 'Saving']
     },
     accountNumber: {
         type: Number
