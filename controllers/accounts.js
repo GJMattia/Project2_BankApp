@@ -11,7 +11,6 @@ module.exports = {
 async function index(req, res){
     const accounts = await Account.find({});
     res.render('accounts/index', {title: 'My Accounts', accounts})
-    res.render('accounts/index', {title: 'hello'})
 };
 
 function newAccount(req, res){
@@ -20,7 +19,7 @@ function newAccount(req, res){
 
 async function create(req, res){
     try{
-        const account = await Account.create(req.body);
+        await Account.create(req.body);
 
         res.redirect('/accounts');
     } catch (err){
@@ -31,7 +30,6 @@ async function create(req, res){
 async function show(req, res){
     try {
         const account = await Account.findById(req.params.id);
-        console.log(account);
         res.render('accounts/show', {title: 'hello', account})
     } catch(err) {
         console.error(err);

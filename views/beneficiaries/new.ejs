@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form action="/beneficiaries/<%= account._id %>" method="POST">
+    <label
+      >Beneficiary Name
+      <input name="name" type="text">
+      </select>
+    </label>
+    <label
+      >Birthdate
+      <input name="birthdate" type="date"/>
+    </label>
+    <label>for account: <%= account.accountNumber %> </label>
+    <button type="submit">submit</button>
+  </form>
+
+<%- include('../partials/footer') %>

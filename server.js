@@ -14,7 +14,7 @@ require('./config/database');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const accountsRouter = require('./routes/accounts');
-// const beneficiaries = require('./routes/beneficiaries');
+const beneficiariesRouter = require('./routes/beneficiaries');
 
 
 const app = express();
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/accounts', accountsRouter);
-
+app.use('/beneficiaries', beneficiariesRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
