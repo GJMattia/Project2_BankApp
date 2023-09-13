@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<section>
+  <div>
+    <h1><%= account.accountType %></h1>
+    <h2><%= account.balance %></h2>
+    <h2><%= account.accountNumber %></h2>
+  </div>
+</section>
+<div class="settings">
+  <a href="/accounts/transfer">Transfer</a>
+  <a href="/accounts/new/beneficiary">Add Beneficiary</a>
+  <a href="/accounts/close" class="red">Close Account</a>
+</div>
+
+<%- include('../partials/footer') %>

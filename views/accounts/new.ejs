@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<h1 class="title">ACCOUNT OPEN</h1>
+<form action="/accounts" method="POST">
+  <label
+    >Account type
+    <select name="accountType">
+      <option>Checking</option>
+      <option>Saving</option>
+    </select>
+  </label>
+  <label
+    >Account number
+    <input name="accountNumber" type="number" value="123456789" />
+  </label>
+  <label
+    >Opening Balance
+    <input name="balance" type="number" />
+  </label>
+  <button type="submit">submit</button>
+</form>
+
+<%- include('../partials/footer') %>
