@@ -1,30 +1,16 @@
 <%- include('../partials/header') %>
 
-<h1 class="title">MY ACCOUNTS</h1>
+<h1 class="accounts-title">Your current accounts with $BankApp</h1>
 
-<a href="/accounts/new">OPEN NEW ACCOUNT</a>
-
-<table>
-  <thead>
-    <tr>
-      <th>Account Type</th>
-      <th>Account Number</th>
-      <th>Balance</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% accounts.forEach(function(a){ %>
-
-    <tr>
-      <td><%= a.accountType %></td>
-      <td><%= a.accountNumber %></td>
-      <td><%= a.balance %></td>
-      <td><a href="/accounts/<%= a._id %>">Details</a></td>
-    </tr>
-    <% }) %>
-  </tbody>
-</table>
-<a href="/accounts/transfer">Transfer</a>
+<div class="account-container">
+  <% accounts.forEach(function(a){ %>
+  <div class="account-box">
+    <h1><%= a.accountType %></h1>
+    <h3><%= a.accountNumber %></h3>
+    <h1>$<%= a.balance %>.00</h1>
+    <a href="/accounts/<%= a._id %>">Details</a>
+  </div>
+  <% }) %>
+</div>
 
 <%- include('../partials/footer') %>

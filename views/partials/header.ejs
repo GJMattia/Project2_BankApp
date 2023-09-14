@@ -6,15 +6,23 @@
   </head>
   <body>
     <nav>
-      <div>$BankApp.com</div>
-      <a href="/">Home</a>
-      <% if (user) { %>
-      <a href="/accounts/new">Open Account</a>
-      <a href="/accounts">My Accounts</a>
-      <a href="/logout">Log Out</a>
-      <% } else { %>
-      <a href="/auth/google" class="login">LOG IN</a>
-      <% } %>
+      <img class="bank-app" src="/images/BankApp.png" />
+
+      <div class="nav-menu">
+        <a class="nav-link" href="/">Home</a>
+        <% if (user) { %>
+        <a class="nav-link" href="/accounts/new">Open Account</a>
+        <a class="nav-link" href="/accounts">My Accounts</a>
+        <% } %>
+      </div>
+
+      <div class="sign-in">
+        <% if (user) { %>
+        <a class="log" href="/logout">Log Out</a>
+        <% } else { %>
+        <a class="log" href="/auth/google" class="login">LOG IN</a>
+        <% } %>
+      </div>
     </nav>
   </body>
 </html>

@@ -1,5 +1,6 @@
 const Account = require('../models/account');
 const Beneficiary = require('../models/beneficiary');
+
 module.exports = {
     index,
     newAccount,

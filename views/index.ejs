@@ -1,5 +1,43 @@
-<%- include('./partials/header') %>
+<%- include('./partials/header') %> <% if (user) { %>
+<h1 class="welcome">Welcome back to $BankApp!</h1>
+<% } else { %>
+<h1 class="welcome">Welcome to to $BankApp, Please sign in!</h1>
+<% } %>
 
-<h1 class="title">Welcome to $BankApp.com, Please Log In to get started!</h1>
+<div class="home-container">
+  <div class="home-container-title">
+    <h1>Browse our products!</h1>
+  </div>
+  <div class="account-showcase">
+    <div class="account-display">
+      <img class="account-image" src="/images/checking.jpg" />
+      <h2 class="account-title">Checking</h2>
+      <p class="account-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius,
+        aliquam ipsum porro odio facere deleniti alias maiores fuga sed!
+      </p>
+      <% if (user) { %>
+      <button class="homepage-btn">
+        Click to open a new Checking Account!
+      </button>
+      <% } else { %>
+      <button class="homepage-btn">Log in to open a new account!</button>
+      <% } %>
+    </div>
+    <div class="account-display">
+      <img class="account-image" src="/images/saving.jpg" />
+      <h2 class="account-title">Saving</h2>
+      <p class="account-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius,
+        aliquam ipsum porro odio facere deleniti alias maiores fuga sed!
+      </p>
+      <% if (user) { %>
+      <button class="homepage-btn">Click to open a new Saving Account!</button>
+      <% } else { %>
+      <button class="homepage-btn">Log in to open a new account!</button>
+      <% } %>
+    </div>
+  </div>
+</div>
 
 <%- include('./partials/footer') %>
