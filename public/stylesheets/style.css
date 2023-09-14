@@ -43,6 +43,10 @@ nav {
   text-decoration: none;
 }
 
+.log:hover{
+  color:green;
+}
+
 .nav-menu{
 display: flex;
 align-items: center;
