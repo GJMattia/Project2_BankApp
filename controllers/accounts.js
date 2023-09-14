@@ -27,7 +27,7 @@ async function transferCash(req, res){
     toAccount.balance += transferAmount;
     await fromAccount.save();
     await toAccount.save();
-    res.redirect('/');
+    res.redirect('/accounts');
     }catch(err){
         console.error(err);
     };

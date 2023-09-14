@@ -47,8 +47,6 @@ async function create(req, res){
             birthdate
         });
         await beneficiary.save();
-        console.log('good');
-       
         res.redirect(`/accounts/${accountId}`);
     } catch (err) {
         console.error(err);

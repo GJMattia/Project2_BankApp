@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const beneficiariesCtrl = require('../controllers/beneficiaries');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
+router.post('/:id/update/submit', ensureLoggedIn, beneficiariesCtrl.updateBeneficiary);
 
-router.post('/:id/update/submit', beneficiariesCtrl.updateBeneficiary);
+router.get('/:id/update', ensureLoggedIn, beneficiariesCtrl.update);
 
-router.get('/:id/update', beneficiariesCtrl.update);
+router.get('/new/:id', ensureLoggedIn, beneficiariesCtrl.new);
 
-router.get('/new/:id', beneficiariesCtrl.new);
+router.post('/:id', ensureLoggedIn, beneficiariesCtrl.create);
 
-router.post('/:id', beneficiariesCtrl.create);
-
-router.delete('/:id', beneficiariesCtrl.delete);
+router.delete('/:id', ensureLoggedIn, beneficiariesCtrl.delete);
 
 
 

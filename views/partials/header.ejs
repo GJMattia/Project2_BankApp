@@ -8,8 +8,13 @@
     <nav>
       <div>$BankApp.com</div>
       <a href="/">Home</a>
+      <% if (user) { %>
       <a href="/accounts/new">Open Account</a>
       <a href="/accounts">My Accounts</a>
-      <a href="/auth/google">Sign In</a>
+      <a href="/logout">Log Out</a>
+      <% } else { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+      <% } %>
     </nav>
-  
+  </body>
+</html>
