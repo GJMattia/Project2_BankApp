@@ -4,8 +4,39 @@ module.exports = {
     index,
     newAccount,
     create,
-    show
+    show,
+    transfer,
+    transferCash,
+    deleteAccount
 };
+
+async function deleteAccount(req, res){
+    const accountId = req.params.id;
+    await Account.findByIdAndRemove(accountId);
+    res.redirect('/accounts');
+}
+
+async function transferCash(req, res){
+    try{
+    const fromAccountId = req.body.fromAccount;
+    const toAccountId = req.body.toAccount;
+    const transferAmount = parseFloat(req.body.transferAmount);
+    const fromAccount = await Account.findOne({ _id: fromAccountId });
+    const toAccount = await Account.findOne({ _id:toAccountId });
+    fromAccount.balance -= transferAmount;
+    toAccount.balance += transferAmount;
+    await fromAccount.save();
+    await toAccount.save();
+    res.redirect('/');
+    }catch(err){
+        console.error(err);
+    };
+};
+
+async function transfer(req, res){
+    const accounts = await Account.find({});
+    res.render('transfer/transfer', {title: 'transfer', accounts});
+}
 
 
 async function index(req, res){
@@ -14,7 +45,8 @@ async function index(req, res){
 };
 
 function newAccount(req, res){
-    res.render('accounts/new', {title: 'New Account Opening!'});
+    let generateAccountNumber = Math.floor(100000000 + Math.random() * 900000000);
+    res.render('accounts/new', {title: 'New Account Opening!', generateAccountNumber});
 };
 
 async function create(req, res){

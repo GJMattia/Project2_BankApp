@@ -4,7 +4,28 @@ const Beneficiary = require('../models/beneficiary');
 module.exports = {
     new: newBeneficiary,
     create,
-    delete: deleteBeneficiary
+    delete: deleteBeneficiary,
+    update,
+    updateBeneficiary
+};
+
+async function updateBeneficiary(req, res){
+    const beneficiary = await Beneficiary.findById(req.params.id);
+    beneficiary.name = req.body.name;
+    beneficiary.address = req.body.address;
+    beneficiary.birthdate = req.body.birthdate;
+    try {
+        await beneficiary.save();
+        res.redirect(`/accounts/${beneficiary.account}`);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+
+async function update(req, res){
+    const beneficiary = await Beneficiary.findById(req.params.id);
+    res.render('beneficiaries/update', {title: 'Update Beneficiary', beneficiary});
 };
 
 

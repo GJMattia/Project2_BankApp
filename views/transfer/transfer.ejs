@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<form action="/accounts/transfer/submit" method="POST">
+  <h3>please select an account to transfer FROM</h3>
+  <select name="fromAccount">
+    <% accounts.forEach(account => { %>
+    <option value="<%= account._id %>">
+      Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
+    </option>
+    <% }); %>
+  </select>
+
+  <h3>please select an account to transfer TO</h3>
+  <select name="toAccount">
+    <% accounts.forEach(account => { %>
+    <option value="<%= account._id %>">
+      Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
+    </option>
+
+    <% }); %>
+  </select>
+
+  <h3>Remember: A transfer can take up to 0.5 seconds!</h3>
+  <input type="number" name="transferAmount" />
+  <button type="submit">TRANSFER</button>
+</form>
+
+<%- include('../partials/footer') %>

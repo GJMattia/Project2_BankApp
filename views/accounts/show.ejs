@@ -10,7 +10,9 @@
 <div class="settings">
   <a href="/accounts/transfer">Transfer</a>
   <a href="/beneficiaries/new/<%= account._id %>">Add Beneficiary</a>
-  <a href="/accounts/close" class="red">Close Account</a>
+  <form action="/accounts/<%= account._id %>?_method=DELETE" method="POST">
+    <button type="submit">Close Account</button>
+  </form>
 </div>
 <h1>Beneficiaries</h1>
 <% if (beneficiaries.length) { %>
@@ -20,7 +22,8 @@
       <th>Beneficiary Name</th>
       <th>Beneficiary Birthdate</th>
       <th>Beneficiary Address</th>
-      <th></th>
+      <th>Remove</th>
+      <th>Update Beneficiary Information</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +39,9 @@
         >
           <button type="submit">Remove</button>
         </form>
+      </td>
+      <td>
+        <a href="/beneficiaries/<%= beneficiary._id %>/update">EDIT</a>
       </td>
     </tr>
     <% }); %>
