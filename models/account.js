@@ -15,9 +15,11 @@ const accountSchema = new Schema({
         type: Number,
         min: 0
     },
-    overdraft: {
-        type: Boolean
-    }
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      }
 },{
     timestamps: true
 });

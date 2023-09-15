@@ -5,15 +5,15 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 const accountsCtrl = require('../controllers/accounts');
 
 
-router.get('/', accountsCtrl.index);
+router.get('/', ensureLoggedIn, accountsCtrl.index);
 
-router.get('/new', accountsCtrl.newAccount);
+router.get('/new', ensureLoggedIn, accountsCtrl.newAccount);
 
-router.get('/transfer', accountsCtrl.transfer);
+router.get('/transfer', ensureLoggedIn, accountsCtrl.transfer);
 
 router.post('/transfer/submit', accountsCtrl.transferCash);
 
-router.get('/:id', accountsCtrl.show);
+router.get('/:id', ensureLoggedIn, accountsCtrl.show);
 
 router.post('/', accountsCtrl.create);
 

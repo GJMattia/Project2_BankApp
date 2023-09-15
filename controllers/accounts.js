@@ -52,6 +52,7 @@ function newAccount(req, res){
 
 async function create(req, res){
     try{
+        req.body.user = req.user._id;
         await Account.create(req.body);
 
         res.redirect('/accounts');
