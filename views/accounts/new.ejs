@@ -1,27 +1,27 @@
 <%- include('../partials/header') %>
 
-<h1 class="title">ACCOUNT OPEN</h1>
-<form action="/accounts" method="POST">
-  <label
-    >Account type
-    <select name="accountType">
+<h1 class="new-account-title">We're glad you are opening a new account!</h1>
+
+<div class="new-account-container">
+  <form class="new-account-form" action="/accounts" method="POST">
+    <label class="account-label">Account Holder:</label>
+    <div class="user-name account-asset"><%= user.name %></div>
+    <label class="account-label">Account type:</label>
+    <select class="account-asset" name="accountType">
       <option>Checking</option>
       <option>Saving</option>
     </select>
-  </label>
-  <label
-    >Account number
+    <label class="account-label">Account number:</label>
     <input
+      class="account-asset account-num"
       name="accountNumber"
-      type="number"
       value="<%= generateAccountNumber %>"
     />
-  </label>
-  <label
-    >Opening Balance
-    <input name="balance" type="number" />
-  </label>
-  <button type="submit">submit</button>
-</form>
-
+    <label class="account-label"
+      >Opening Balance: <span class="cash-span">$</span></label
+    >
+    <input class="account-asset opening-bal" name="balance" />
+    <button class="open-acc-btn" type="submit">Open Account</button>
+  </form>
+</div>
 <%- include('../partials/footer') %>

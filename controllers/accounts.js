@@ -65,7 +65,7 @@ async function show(req, res){
     try {
         const account = await Account.findById(req.params.id);
         const beneficiaries = await Beneficiary.find({account: account._id});
-        res.render('accounts/show', {title: 'hello', account, beneficiaries})
+        res.render('accounts/show', {title: 'Account Details', account, beneficiaries})
     } catch(err) {
         console.error(err);
     };

@@ -1,53 +1,73 @@
 <%- include('../partials/header') %>
-
-<section>
-  <div>
-    <h1><%= account.accountType %></h1>
-    <h2><%= account.balance %></h2>
-    <h2><%= account.accountNumber %></h2>
+<h1 class="accounts-title">Account Details</h1>
+<div class="accounts-container">
+  <div class="account-title-div">
+    <h1>Account Info</h1>
   </div>
-</section>
-<div class="settings">
-  <a href="/accounts/transfer">Transfer</a>
-  <a href="/beneficiaries/new/<%= account._id %>">Add Beneficiary</a>
-  <form action="/accounts/<%= account._id %>?_method=DELETE" method="POST">
-    <button type="submit">Close Account</button>
-  </form>
+  <div class="account-details">
+    <h1 class="details-title">Account Holder:</h1>
+    <h1 class="details-asset"><%= user.name %></h1>
+    <h1 class="details-title">Account Type:</h1>
+    <h1 class="details-asset"><%= account.accountType %></h1>
+    <h1 class="details-title">Account Number:</h1>
+    <h1 class="details-asset"><%= account.accountNumber %></h1>
+    <h1 class="details-title">Account Balance:</h1>
+    <h1 class="details-asset">$<%= account.balance %></h1>
+  </div>
+
+  <div class="account-actions">
+    <a class="action-link" href="/beneficiaries/new/<%= account._id %>"
+      >Add Beneficiary</a
+    >
+    <a class="action-link" href="/accounts/transfer">Transfer</a>
+    <form action="/accounts/<%= account._id %>?_method=DELETE" method="POST">
+      <button class="close-acc-btn" type="submit">Close Account</button>
+    </form>
+  </div>
+  <div class="ben-title">
+    <h1>Beneficiaries</h1>
+  </div>
+  <% if (beneficiaries.length) { %>
+  <div class="beneficiary-display">
+    <table>
+      <thead>
+        <tr>
+          <th>Beneficiary Name</th>
+          <th>Beneficiary Birthdate</th>
+          <th>Beneficiary Address</th>
+          <th>Update Info</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% beneficiaries.forEach((beneficiary) => { %>
+        <tr>
+          <td><%= beneficiary.name %></td>
+          <td><%= beneficiary.name %></td>
+          <td><%= beneficiary.address %></td>
+          <td>
+            <a
+              class="edit-ben"
+              href="/beneficiaries/<%= beneficiary._id %>/update"
+              >EDIT</a
+            >
+          </td>
+          <td>
+            <form
+              action="/beneficiaries/<%= beneficiary._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button class="remove-ben" type="submit">Remove</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <h5>CAUTION: removing a beneficiary will take affect immeditetly</h5>
+  </div>
 </div>
-<h1>Beneficiaries</h1>
-<% if (beneficiaries.length) { %>
-<table class="ticket-table">
-  <thead>
-    <tr>
-      <th>Beneficiary Name</th>
-      <th>Beneficiary Birthdate</th>
-      <th>Beneficiary Address</th>
-      <th>Remove</th>
-      <th>Update Beneficiary Information</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% beneficiaries.forEach((beneficiary) => { %>
-    <tr>
-      <td><%= beneficiary.name %></td>
-      <td><%= beneficiary.birthdate %></td>
-      <td><%= beneficiary.address %></td>
-      <td>
-        <form
-          action="/beneficiaries/<%= beneficiary._id %>?_method=DELETE"
-          method="POST"
-        >
-          <button type="submit">Remove</button>
-        </form>
-      </td>
-      <td>
-        <a href="/beneficiaries/<%= beneficiary._id %>/update">EDIT</a>
-      </td>
-    </tr>
-    <% }); %>
-  </tbody>
-</table>
-<h5>CAUTION: removing a beneficiary will take affect immeditetly</h5>
 <% } else { %>
-<h5>This account has no beneficiaries</h5>
+<h2 class="no-ben">This account has no beneficiaries.</h2>
+</div>
 <% } %> <%- include('../partials/footer') %>

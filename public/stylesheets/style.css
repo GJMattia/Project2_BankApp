@@ -1,309 +1,663 @@
-html{
+html {
   background-color: rgb(235, 235, 235);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 62.5%;
 }
+
 body {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin:0;
+  margin: 0;
 }
+
 /* NAV BAR */
 
 nav {
   background-color: white;
-  height:6rem;
+  height: 6rem;
   display: flex;
-  width:100%;
+  width: 100%;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
 }
 
-.bank-app{
-  width:14rem;
+.bank-app {
+  width: 14rem;
 }
 
-.nav-link{
-  padding:5rem;
-  font-size:1.5rem;
+.nav-link {
+  padding: 5rem;
+  font-size: 1.5rem;
   color: black;
   text-decoration: none;
 }
 
-.nav-link:hover{
-  color:rgb(0, 179, 0);
+.nav-link:hover {
+  color: rgb(0, 179, 0);
 }
 
-.log{
-  font-size:1.5rem;
+.log {
+  font-size: 1.5rem;
   color: black;
   text-decoration: none;
 }
 
-.log:hover{
-  color:rgb(0, 209, 0);
+.log:hover {
+  color: rgb(0, 209, 0);
 }
 
-.nav-menu{
-display: flex;
-align-items: center;
-justify-content: space-around;
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 
 /* MAIN PAGE CONTAINER */
 
-.welcome{
+.welcome {
   font-size: 2.5rem;
-  color:rgb(59, 59, 59);
+  color: rgb(59, 59, 59);
   text-align: center;
-  width:60rem;
-  padding:2rem;
-  margin:2rem;
+  width: 60rem;
+  padding: 2rem;
+  margin: 2rem;
 }
 
 
-.home-container{
+.home-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width:100%;
-  height:52rem;
+  width: 100%;
+  height: 70rem;
   background-image: url('/images/cars.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.home-container-title{
+.home-container-title {
   position: relative;
-  bottom:2.3rem;
+  bottom: 8.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
 
 }
 
-.account-showcase{
+.account-showcase {
+  position: relative;
+  bottom: 10rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width:120rem;
-  height:40rem;
-
+  width: 120rem;
+  height: 40rem;
 }
-.account-display{
+
+.account-display {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width:55rem;
-  height:40rem;
+  width: 55rem;
+  height: 40rem;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.account-image{
-  width:100%;
-  height:60%;
+.account-image {
+  width: 100%;
+  height: 60%;
 }
 
-.account-title{
-  margin:.5rem;
-  font-size:2.5rem;
+.account-title {
+  margin: .5rem;
+  font-size: 2.5rem;
 }
 
-.account-description{
-  margin:.5rem;
-  font-size:1.5rem;
-  width:40rem;
+.account-description {
+  margin: .5rem;
+  font-size: 1.5rem;
+  width: 40rem;
 }
 
-.homepage-btn{
-  margin:.5rem;
+.homepage-btn {
+  margin: .5rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 900;
-  width:30rem;
-  height:4rem;
-  color:white;
+  width: 30rem;
+  height: 4rem;
+  color: white;
   background-color: rgb(0, 210, 0);
-  border:0;
+  border: 0;
   font-size: 1.5rem;
 }
 
-.homepage-btn:hover{
+.homepage-btn:hover {
   background-color: lawngreen;
   cursor: pointer;
 }
 
 /* FOOTER AND FOOTER ELEMENTS */
 
-footer{
+footer {
   font-size: 1.5rem;
-  height:4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-  width:100%;
-  margin-top:27rem;
+  width: 100%;
+  margin-top: 27rem;
 }
 
-.footer-elements{
+.footer-elements {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space;
 }
 
-.footer-element{
-  margin:1rem;
+.footer-element {
+  margin: 1rem;
   text-decoration: none;
-  color:rgb(52, 52, 52);
+  color: rgb(52, 52, 52);
 }
 
 /* ACCOUNT DISPLAY */
 
-.accounts-title{
-  margin-top:3rem;
-  font-size:2.5rem;
+.account-index-container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 70rem;
+  background-image: url('/images/city2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.account-container{
+.accounts-title {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  color: rgb(43, 43, 43);
+}
+
+.account-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0rem;
   grid-row-gap: 4rem;
   flex-wrap: wrap;
-  margin:4rem;
-  width:110rem;
+  margin: 4rem;
+  width: 110rem;
 }
 
-.account-box{
-justify-self: center;
-align-items: center;
-justify-content: space-around;
-display: flex;
-flex-wrap: wrap;
-width:50rem;
-height:15rem;
-background-color: #3ee577;
-background-image: linear-gradient(315deg, #3ee577 0%, #42fcdb 74%);
-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+.account-box {
+  justify-self: center;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50rem;
+  height: 15rem;
+  background-color: #3ee577;
+  background-image: linear-gradient(315deg, #3ee577 0%, #42fcdb 74%);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.new-acc{
-display:flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-width:70rem;
-height:15rem;
-background-image: linear-gradient(315deg, #000000 0%, #1971ff 74%);
-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+.new-acc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70rem;
+  height: 15rem;
+  background-image: linear-gradient(315deg, #000000 0%, #1971ff 74%);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 
 }
-.account-type{
-  margin:0;
+
+.account-type {
+  margin: 0;
   font-size: 2.5rem;
 }
 
-.account-number{
-  margin:0;
+.account-number {
+  margin: 0;
   font-size: 1.3rem;
 }
 
-.account-balance{
-  font-size:4rem;
-  color:black;
-  margin:0;
+.account-balance {
+  font-size: 4rem;
+  color: black;
+  margin: 0;
 }
 
 
-.view-account{
+.view-account {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:5rem;
-  width:15rem;
+  height: 5rem;
+  width: 15rem;
   border: 2px solid black;
   border-radius: .5rem;
-  font-size:1.8rem;
+  font-size: 1.8rem;
 }
 
-.view-account>a{
+.view-account>a {
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
-.view-account>a:hover{
-  color:white;
+.view-account>a:hover {
+  color: white;
 }
 
-.avail-bal{
-  margin:0;
+.avail-bal {
+  margin: 0;
 }
 
-.new-account-box{
+.new-account-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border:1px solid black;
-  width:50rem;
-  height:15rem;
+  border: 1px solid black;
+  width: 50rem;
+  height: 15rem;
 }
 
-.account-text{
-  width:80%;
-  color:white;
+.account-text {
+  width: 80%;
+  color: white;
 }
 
-.new-account-div{
+.new-account-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:5rem;
-  width:15rem;
+  height: 5rem;
+  width: 15rem;
   border: 2px solid white;
   border-radius: .5rem;
-  font-size:1.5rem;
+  font-size: 1.5rem;
 }
 
-.new-account-div>a{
+.new-account-div>a {
   text-decoration: none;
-  color:white;
+  color: white;
 }
 
-.new-account-div>a:hover{
-  color:lawngreen;
+.new-account-div>a:hover {
+  color: lawngreen;
 }
 
-.new-title{
-  color:white;
+.new-title {
+  color: white;
 }
 
-.account-info{
+.account-info {
   position: relative;
-  bottom:4rem;
+  bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:6rem;
+  height: 6rem;
 }
-.account-balance-div{
+
+.account-balance-div {
   position: relative;
-  top:3rem;
-  right:12rem;
+  top: 3rem;
+  right: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:10rem;
+  height: 10rem;
+}
+
+/*  NEW ACCOUNT PAGE  */
+
+.new-account-title {
+  font-size: 2.5rem;
+  color: rgb(28, 28, 28);
+}
+
+.new-account-form {
+  margin: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #cacaca 0%, #49ff95 74%);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  display: grid;
+  width: 40rem;
+  height: 45rem;
+  font-weight: 900;
+}
+
+.new-account-form>label {
+  font-size: 1.5rem;
+}
+
+.new-account-form>select {
+  border-radius: .5rem;
+  padding: .5rem;
+  border: 0;
+  font-size: 1.5rem;
+}
+
+.new-account-form>input {
+  border-radius: .5rem;
+  padding: .5rem;
+  border: 0;
+  font-size: 1.5rem;
+}
+
+.open-acc-btn {
+  position: relative;
+  left: 10rem;
+  border: 0;
+  background-color: white;
+  font-size: 2rem;
+  width: 20rem;
+  height: 4rem;
+  border-radius: 1rem;
+}
+
+.open-acc-btn:hover {
+  background-color: #00ff6a;
+  color: white;
+  cursor: pointer;
+}
+
+.user-name {
+  font-weight: 900;
+  background-color: white;
+  padding: .8rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+}
+
+.account-label {
+  justify-self: flex-start;
+  margin-left: 5rem;
+}
+
+.account-asset {
+  font-weight: 900;
+  justify-self: flex-start;
+  margin-left: 4rem;
+}
+
+.new-account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 70rem;
+  background-image: url('/images/city.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.opening-bal {
+  width: 6rem;
+}
+
+.account-num {
+  width: 9rem;
+}
+
+.cash-span {
+  font-size: 2rem;
+  position: relative;
+  left: 4.5rem;
+}
+
+/* ACCOUNT SHOW DISPLAY */
+
+.account-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 75rem;
+  height: 6rem;
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #000000 0%, #01aaff 74%);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
+}
+
+.action-link {
+  border: 2px solid white;
+  padding: .7rem;
+  border-radius: 1rem;
+  font-weight: 900;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.action-link:hover {
+  color: lawngreen;
+}
+
+.close-acc-btn {
+  font-size: 2rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 900;
+  color: white;
+  padding: .7rem;
+  background-color: rgb(76, 0, 0);
+  border: 2px solid white;
+  border-radius: 1rem;
+}
+
+.close-acc-btn:hover {
+  cursor: pointer;
+  background-color: rgb(177, 1, 1);
+}
+
+.account-details {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  width: 75rem;
+  height: 25rem;
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #000000 0%, #00d154 74%);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.details-title {
+  font-size: 1.8rem;
+  margin-left: 16rem;
+  justify-self: flex-start;
+}
+
+.details-asset {
+  font-size: 2.5rem;
+  margin-left: 10rem;
+  justify-self: flex-start;
+}
+
+.beneficiary-display {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #000000 0%, #193789 74%);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+th {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+td {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.edit-ben {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 1rem;
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.edit-ben:hover {
+  color: #00d154;
+}
+
+.remove-ben {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(76, 0, 0);
+  border: 2px solid white;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+.remove-ben:hover {
+  cursor: pointer;
+  background-color: rgb(177, 1, 1);
+}
+
+.accounts-container {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100rem;
+  background-image: url('/images/city3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ben-title {
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72rem;
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.account-title-div {
+  margin-top: 5rem;
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75rem;
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.no-ben {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*  ADD BENEFICIARY */
+
+.new-beneficiary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 70rem;
+  background-image: url('/images/city5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.new-ben-form {
+  margin: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #cacaca 0%, #49b0ff 74%);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  display: grid;
+  width: 50rem;
+  height: 40rem;
+  font-weight: 900;
+}
+
+.new-ben-form>label {
+  font-size: 1.5rem;
+}
+
+.new-ben-form>select {
+  border-radius: .5rem;
+  padding: .5rem;
+  border: 0;
+  font-size: 1.5rem;
+}
+
+.new-ben-form>input {
+  border-radius: .5rem;
+  padding: .5rem;
+  border: 0;
+  font-size: 1.5rem;
+}
+
+.add-ben-btn {
+  position: relative;
+  left: 13rem;
+  border: 0;
+  background-color: white;
+  font-size: 2rem;
+  width: 20rem;
+  height: 4rem;
+  border-radius: 1rem;
+}
+
+.add-ben-btn:hover {
+  background-color: #0088ff;
+  color: white;
+  cursor: pointer;
+}
+
+.acc-num {
+  background-color: white;
+  padding: .5rem;
+  border-radius: .5rem;
 }

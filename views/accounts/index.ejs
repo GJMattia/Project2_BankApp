@@ -1,34 +1,35 @@
 <%- include('../partials/header') %>
 
-<h1 class="accounts-title">Your current accounts with $BankApp</h1>
-
-<div class="account-container">
-  <% accounts.forEach(function(a){ %> <% if (user?._id.equals(a.user)) { %>
-  <div class="account-box">
-    <div class="account-info">
-      <h1 class="account-type"><%= a.accountType %></h1>
-      <h1 class="account-number"><%= a.accountNumber %></h1>
+<h1 class="accounts-title"><%= user.name %>'s accounts with $BankApp</h1>
+<div class="account-index-container">
+  <div class="account-container">
+    <% accounts.forEach(function(a){ %> <% if (user?._id.equals(a.user)) { %>
+    <div class="account-box">
+      <div class="account-info">
+        <h1 class="account-type"><%= a.accountType %></h1>
+        <h1 class="account-number"><%= a.accountNumber %></h1>
+      </div>
+      <div class="account-balance-div">
+        <h1 class="account-balance">$<%= a.balance %>.00</h1>
+        <h5 class="avail-bal">AVAILABLE BALANCE</h5>
+      </div>
+      <div class="view-account">
+        <a href="/accounts/<%= a._id %>">View Account</a>
+      </div>
     </div>
-    <div class="account-balance-div">
-      <h1 class="account-balance">$<%= a.balance %>.00</h1>
-      <h5 class="avail-bal">AVAILABLE BALANCE</h5>
-    </div>
-    <div class="view-account">
-      <a href="/accounts/<%= a._id %>">View Account</a>
-    </div>
+    <% } %> <% }) %>
   </div>
-  <% } %> <% }) %>
-</div>
-<div class="new-acc">
-  <h1 class="account-type new-title">Want to open a new account?</h1>
-  <h5 class="account-text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, praesentium
-    enim saepe tempora esse, necessitatibus vero est magni facilis non excepturi
-    voluptatum ad? Odit recusandae laborum excepturi placeat maxime atque sit
-    sequi omnis dolore aliquid?
-  </h5>
-  <div class="new-account-div">
-    <a href="/accounts/new">Open new account</a>
+  <div class="new-acc">
+    <h1 class="account-type new-title">Want to open a new account?</h1>
+    <h5 class="account-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, praesentium
+      enim saepe tempora esse, necessitatibus vero est magni facilis non
+      excepturi voluptatum ad? Odit recusandae laborum excepturi placeat maxime
+      atque sit sequi omnis dolore aliquid?
+    </h5>
+    <div class="new-account-div">
+      <a href="/accounts/new">Open new account</a>
+    </div>
   </div>
 </div>
 <%- include('../partials/footer') %>
