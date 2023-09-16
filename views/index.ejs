@@ -17,11 +17,15 @@
         aliquam ipsum porro odio facere deleniti alias maiores fuga sed!
       </p>
       <% if (user) { %>
-      <button class="homepage-btn">
-        Click to open a new Checking Account!
-      </button>
+      <a href="accounts/new">
+        <button class="homepage-btn">
+          Click to open a new Checking Account!
+        </button>
+      </a>
       <% } else { %>
-      <button class="homepage-btn">Log in to open a new account!</button>
+      <a href="accounts/new">
+        <button class="homepage-btn">Log in to open a new account!</button>
+      </a>
       <% } %>
     </div>
     <div class="account-display">
@@ -32,9 +36,13 @@
         aliquam ipsum porro odio facere deleniti alias maiores fuga sed!
       </p>
       <% if (user) { %>
-      <button class="homepage-btn">Click to open a new Saving Account!</button>
+      <a href="accounts/new">
+        <button class="homepage-btn">Click to open a new Saving Account!</button>
+      </a>
       <% } else { %>
-      <button class="homepage-btn">Log in to open a new account!</button>
+      <a href="accounts/new">
+        <button class="homepage-btn">Log in to open a new account!</button>
+      </a>
       <% } %>
     </div>
   </div>

@@ -3,7 +3,7 @@ const router = express.Router();
 const beneficiariesCtrl = require('../controllers/beneficiaries');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-router.post('/:id/update/submit', ensureLoggedIn, beneficiariesCtrl.updateBeneficiary);
+router.put('/:id/update/submit', ensureLoggedIn, beneficiariesCtrl.updateBeneficiary);
 
 router.get('/:id/update', ensureLoggedIn, ensureLoggedIn, beneficiariesCtrl.update);
 

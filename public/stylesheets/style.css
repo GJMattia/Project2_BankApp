@@ -56,6 +56,7 @@ nav {
 }
 
 
+
 /* MAIN PAGE CONTAINER */
 
 .welcome {
@@ -75,7 +76,7 @@ nav {
   align-items: center;
   width: 100%;
   height: 70rem;
-  background-image: url('/images/cars.jpg');
+  background-image: url('/images/city5.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -601,7 +602,7 @@ td {
   align-items: center;
   width: 100%;
   height: 70rem;
-  background-image: url('/images/city5.jpg');
+  background-image: url('/images/cars.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -660,4 +661,11 @@ td {
   background-color: white;
   padding: .5rem;
   border-radius: .5rem;
+}
+
+/* Update Beneficiary */
+
+.ben-update {
+  background-color: #d3d3d3;
+  background-image: linear-gradient(315deg, #cacaca 0%, #ff4949 74%);
 }

@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1 class="new-account-title">Update your beneficiary's information below!</h1>
 <div class="new-beneficiary-container">
-  <form class="new-ben-form" action='/beneficiaries/<%= beneficiary._id %>/update/submit' method="POST">
+  <form class="new-ben-form ben-update" action='/beneficiaries/<%= beneficiary._id %>/update/submit?_method=PUT' method="POST">
     <label class="account-label">Beneficiary Name</label>
     <input
     value="<%= beneficiary.name %>"

@@ -43,7 +43,7 @@
         <% beneficiaries.forEach((beneficiary) => { %>
         <tr>
           <td><%= beneficiary.name %></td>
-          <td><%= beneficiary.name %></td>
+          <td><%= formatDate(beneficiary.birthdate) %></td>
           <td><%= beneficiary.address %></td>
           <td>
             <a

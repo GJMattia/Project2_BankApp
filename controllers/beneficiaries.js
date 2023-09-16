@@ -9,42 +9,42 @@ module.exports = {
     updateBeneficiary
 };
 
-async function updateBeneficiary(req, res){
-    const beneficiary = await Beneficiary.findById(req.params.id);
-    beneficiary.name = req.body.name;
-    beneficiary.address = req.body.address;
-    beneficiary.birthdate = req.body.birthdate;
+async function updateBeneficiary(req, res) {
     try {
+        const beneficiary = await Beneficiary.findById(req.params.id);
+        beneficiary.name = req.body.name;
+        beneficiary.address = req.body.address;
+        beneficiary.birthdate = req.body.birthdate;
         await beneficiary.save();
         res.redirect(`/accounts/${beneficiary.account}`);
     } catch (err) {
-        console.error(err);
-    }
-}
+        console.log(err);
+    };
+};
 
 
-async function update(req, res){
+async function update(req, res) {
     const beneficiary = await Beneficiary.findById(req.params.id);
-    res.render('beneficiaries/update', {title: 'Update Beneficiary', beneficiary});
+    res.render('beneficiaries/update', { title: 'Update Beneficiary', beneficiary });
 };
 
 
-async function newBeneficiary(req, res){
+async function newBeneficiary(req, res) {
     const account = await Account.findById(req.params.id);
-    res.render('beneficiaries/new', {title: 'New Beneficiary', account});
+    res.render('beneficiaries/new', { title: 'New Beneficiary', account });
 };
 
 
-async function create(req, res){
+async function create(req, res) {
     const accountId = req.params.id;
     const { name, birthdate, address } = req.body;
 
-    try{
+    try {
         const beneficiary = new Beneficiary({
             account: accountId,
             name,
             address,
-            birthdate
+            birthdate: new Date(birthdate).getTime()
         });
         await beneficiary.save();
         res.redirect(`/accounts/${accountId}`);
@@ -53,14 +53,14 @@ async function create(req, res){
     };
 };
 
-async function deleteBeneficiary(req, res){
+async function deleteBeneficiary(req, res) {
     const beneficiaryId = req.params.id;
-    try{
+    try {
         const beneficiary = await Beneficiary.findById(beneficiaryId);
         const accountId = beneficiary.account;
         await Beneficiary.findByIdAndRemove(beneficiaryId);
         res.redirect(`/accounts/${accountId}`);
-    }catch(err){
+    } catch (err) {
         console.error(err)
     };
 };
