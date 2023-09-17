@@ -24,19 +24,44 @@ async function transferCash(req, res) {
         const transferAmount = parseFloat(req.body.transferAmount);
         const fromAccount = await Account.findOne({ _id: fromAccountId });
         const toAccount = await Account.findOne({ _id: toAccountId });
+
+        if (fromAccountId === toAccountId) {
+            return res.render('transfer/transfer', {
+                title: 'Account Transfers',
+                accounts: await Account.find({}),
+                error: 'Error! You must select 2 different accounts!'
+            });
+        }
+
+        if (fromAccount.balance < transferAmount) {
+            return res.render('transfer/transfer', {
+                title: 'Account Transfers',
+                accounts: await Account.find({}),
+                error: 'Error! Insufficient balance!',
+                success: null
+            });
+        };
+
         fromAccount.balance -= transferAmount;
         toAccount.balance += transferAmount;
         await fromAccount.save();
         await toAccount.save();
-        res.redirect('/accounts');
+        return res.render('transfer/transfer', {
+            title: 'Account Transfers',
+            accounts: await Account.find({}),
+            error: null,
+            success: `Transfer of $${transferAmount} complete!`
+        });
     } catch (err) {
         console.error(err);
     };
 };
 
 async function transfer(req, res) {
+    let error = null;
+    let success = null;
     const accounts = await Account.find({});
-    res.render('transfer/transfer', { title: 'transfer', accounts });
+    res.render('transfer/transfer', { title: 'Account Transfers', accounts, error, success });
 }
 
 

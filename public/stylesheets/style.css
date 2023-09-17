@@ -602,7 +602,7 @@ td {
   align-items: center;
   width: 100%;
   height: 70rem;
-  background-image: url('/images/cars.jpg');
+  background-image: url('/images/city7.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -665,7 +665,126 @@ td {
 
 /* Update Beneficiary */
 
+.update-beneficiary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 70rem;
+  background-image: url('/images/cars.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .ben-update {
   background-color: #d3d3d3;
   background-image: linear-gradient(315deg, #cacaca 0%, #ff4949 74%);
+}
+
+/*  Money Transfer Page   */
+
+.transfer-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 70rem;
+  background-image: url('/images/city6.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.transfer-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  width: 70rem;
+  height: 40rem;
+  background-image: linear-gradient(315deg, #000000 0%, #60f178 74%);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.transfer-label {
+  margin-left: 8rem;
+  font-size: 2rem;
+  font-weight: 900;
+  justify-self: flex-start;
+}
+
+.transfer-asset {
+  font-size: 1.5rem;
+  border: 0;
+  padding: .5rem;
+  border-radius: .5rem;
+  justify-self: flex-start;
+  margin-left: 4rem;
+}
+
+.transfer-amount {
+  font-weight: 900;
+  border: 0;
+  font-size: 2rem;
+  width: 8rem;
+  height: 4rem;
+  border-radius: .5rem;
+}
+
+.transfer-btn {
+  font-weight: 900;
+  position: relative;
+  left: 17rem;
+  border: 0;
+  background-color: white;
+  font-size: 2rem;
+  width: 20rem;
+  height: 4rem;
+  border-radius: 1rem;
+}
+
+.transfer-btn:hover {
+  cursor: pointer;
+  background-color: #00f261;
+}
+
+.transfer-dollar {
+  font-size: 3rem;
+  font-weight: 900;
+  position: relative;
+  left: 18rem;
+
+}
+
+.transfer-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70rem;
+  height: 6rem;
+  margin-top: 6rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.transfer-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70rem;
+  height: 6rem;
+  background-color: rgba(182, 0, 0, 0.8);
+  color: white;
+}
+
+.transfer-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70rem;
+  height: 6rem;
+  background-color: rgba(98, 255, 0, 0.9);
+  color: white;
 }

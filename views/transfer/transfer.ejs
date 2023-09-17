@@ -1,8 +1,24 @@
 <%- include('../partials/header') %>
+<h1 class="accounts-title">Account Transfers</h1>
 
-<form action="/accounts/transfer/submit" method="POST">
-  <h3>please select an account to transfer FROM</h3>
-  <select name="fromAccount">
+<div class="transfer-container ">
+  <% if (error) { %>
+    <div class="transfer-error">
+      <h1> <%= error %> </h1>
+    </div>
+  <% } else if(success) {%>
+    <div class="transfer-success">
+      <h1> <%= success %> </h1>
+    </div>
+  
+  <% } %>
+  <div class="transfer-message">
+    <h1>Please fill out the form to complete a transfer!</h1>
+    </div>
+<form class='transfer-div' action="/accounts/transfer/submit?_method=PUT" method="POST">
+  <h3 class="transfer-label">TRANSFER FROM:</h3>
+  <select class="transfer-asset" name="fromAccount">
+    <option value="" disabled selected>Select an account</option>
     <% accounts.forEach(account => { %>
     <option value="<%= account._id %>">
       Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
@@ -10,8 +26,9 @@
     <% }); %>
   </select>
 
-  <h3>please select an account to transfer TO</h3>
-  <select name="toAccount">
+  <h3 class="transfer-label">TRANSFER TO:</h3>
+  <select class="transfer-asset" name="toAccount">
+    <option value="" disabled selected>Select an account</option>
     <% accounts.forEach(account => { %>
     <option value="<%= account._id %>">
       Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
@@ -20,9 +37,9 @@
     <% }); %>
   </select>
 
-  <h3>Remember: A transfer can take up to 0.5 seconds!</h3>
-  <input type="number" name="transferAmount" />
-  <button type="submit">TRANSFER</button>
+  <h3 class="transfer-label">TRANSFER AMOUNT: <span class="transfer-dollar">$</span></h3>
+  <input class="transfer-amount" name="transferAmount" />
+  <button class="transfer-btn"  type="submit">TRANSFER</button>
 </form>
-
+</div>
 <%- include('../partials/footer') %>

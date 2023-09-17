@@ -11,7 +11,7 @@ router.get('/new', ensureLoggedIn, accountsCtrl.newAccount);
 
 router.get('/transfer', ensureLoggedIn, accountsCtrl.transfer);
 
-router.post('/transfer/submit', accountsCtrl.transferCash);
+router.put('/transfer/submit', accountsCtrl.transferCash);
 
 router.get('/:id', ensureLoggedIn, accountsCtrl.show);
 
