@@ -156,7 +156,7 @@ footer {
   align-items: center;
   background-color: white;
   width: 100%;
-  margin-top: 27rem;
+  margin-top: 10rem;
 }
 
 .footer-elements {
@@ -787,4 +787,77 @@ td {
   height: 6rem;
   background-color: rgba(98, 255, 0, 0.9);
   color: white;
+}
+
+/*  ABOUT BANK APP  */
+
+.bankapp-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-image: url('/images/city5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bankapp-image {
+  margin-top: 1rem;
+  width: 30rem;
+}
+
+.bank-app-readme {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2rem;
+  width: 75rem;
+  height: 92rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bank-app-readme>h1 {
+  margin-top: 3rem;
+}
+
+.bank-app-readme>p {
+  margin: 0;
+  width: 65rem;
+  font-size: 1.5rem;
+}
+
+.bank-app-readme>a {
+  font-size: 1.5rem;
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.list>ul {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.list>ul>li {
+  padding: .5rem;
+}
+
+.lists {
+  margin: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+  justify-items: center;
+  width: 75rem;
 }

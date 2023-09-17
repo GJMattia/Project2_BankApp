@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <nav>
-      <img class="bank-app" src="/images/BankApp.png" />
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <nav>
+    <img class="bank-app" src="/images/BankApp.png" />
 
-      <div class="nav-menu">
-        <a class="nav-link" href="/">Home</a>
-        <% if (user) { %>
-        <a class="nav-link" href="/accounts/new">Open Account</a>
-        <a class="nav-link" href="/accounts/transfer">Transfer Cash</a>
-        <a class="nav-link" href="/accounts">My Accounts</a>
-        <% } %>
-      </div>
-
-      <div class="sign-in">
-        <% if (user) { %>
-        <a class="log" href="/logout">Sign-Out</a>
-        <% } else { %>
-        <a class="log" href="/auth/google" class="login">Sign-In</a>
-        <% } %>
-      </div>
-    </nav>
- 
+    <div class="nav-menu">
+      <a class="nav-link" href="/">Home</a>
+      <% if (user) { %>
+      <a class="nav-link" href="/accounts/new">Open Account</a>
+      <a class="nav-link" href="/accounts/transfer">Transfer Cash</a>
+      <a class="nav-link" href="/accounts">My Accounts</a>
+      <% } %>
+      <a class="nav-link" href="/bankapp">About $BankApp</a>
+    </div>
+    <div class="sign-in">
+      <% if (user) { %>
+      <a class="log" href="/logout">Sign-Out</a>
+      <% } else { %>
+      <a class="log" href="/auth/google" class="login">Sign-In</a>
+      <% } %>
+    </div>
+  </nav>

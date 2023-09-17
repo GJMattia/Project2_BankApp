@@ -12,15 +12,9 @@
       <option>Saving</option>
     </select>
     <label class="account-label">Account number:</label>
-    <input
-      class="account-asset account-num"
-      name="accountNumber"
-      value="<%= generateAccountNumber %>"
-    />
-    <label class="account-label"
-      >Opening Balance: <span class="cash-span">$</span></label
-    >
-    <input class="account-asset opening-bal" name="balance" />
+    <input class="account-asset account-num" name="accountNumber" value="<%= generateAccountNumber %>" />
+    <label class="account-label">Opening Balance: <span class="cash-span">$</span></label>
+    <input required pattern="[0-9]+" class="account-asset opening-bal" name="balance" />
     <button class="open-acc-btn" type="submit">Open Account</button>
   </form>
 </div>
