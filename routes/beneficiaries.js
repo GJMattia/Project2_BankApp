@@ -14,8 +14,6 @@ router.post('/:id', ensureLoggedIn, beneficiariesCtrl.create);
 router.delete('/:id', ensureLoggedIn, beneficiariesCtrl.delete);
 
 
-
-
 module.exports = router;
 
 

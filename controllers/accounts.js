@@ -15,7 +15,7 @@ async function deleteAccount(req, res) {
     const accountId = req.params.id;
     await Account.findByIdAndRemove(accountId);
     res.redirect('/accounts');
-}
+};
 
 async function transferCash(req, res) {
     try {
@@ -31,7 +31,7 @@ async function transferCash(req, res) {
                 accounts: await Account.find({}),
                 error: 'Error! You must select 2 different accounts!'
             });
-        }
+        };
 
         if (fromAccount.balance < transferAmount) {
             return res.render('transfer/transfer', {
@@ -62,8 +62,7 @@ async function transfer(req, res) {
     let success = null;
     const accounts = await Account.find({});
     res.render('transfer/transfer', { title: 'Account Transfers', accounts, error, success });
-}
-
+};
 
 async function index(req, res) {
     const accounts = await Account.find({});
@@ -83,7 +82,7 @@ async function create(req, res) {
         res.redirect('/accounts');
     } catch (err) {
         console.log(err);
-    }
+    };
 };
 
 async function show(req, res) {
@@ -92,7 +91,6 @@ async function show(req, res) {
         return ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) +
             '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
     };
-
     try {
         const account = await Account.findById(req.params.id);
         const beneficiaries = await Beneficiary.find({ account: account._id });

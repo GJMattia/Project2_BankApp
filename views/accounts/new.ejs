@@ -1,20 +1,18 @@
 <%- include('../partials/header') %>
-
 <h1 class="new-account-title">We're glad you are opening a new account!</h1>
-
 <div class="new-account-container">
   <form class="new-account-form" action="/accounts" method="POST">
     <label class="account-label">Account Holder:</label>
     <div class="user-name account-asset"><%= user.name %></div>
     <label class="account-label">Account type:</label>
-    <select class="account-asset" name="accountType">
+    <select class="account-asset account-choice" name="accountType">
       <option>Checking</option>
       <option>Saving</option>
     </select>
     <label class="account-label">Account number:</label>
     <input class="account-asset account-num" name="accountNumber" value="<%= generateAccountNumber %>" />
     <label class="account-label">Opening Balance: <span class="cash-span">$</span></label>
-    <input required pattern="[0-9]+" class="account-asset opening-bal" name="balance" />
+    <input required pattern="[0-9]+(\.[0-9]{1,2})?" class="account-asset opening-bal" name="balance" />
     <button class="open-acc-btn" type="submit">Open Account</button>
   </form>
 </div>

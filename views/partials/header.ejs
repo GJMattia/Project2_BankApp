@@ -7,15 +7,14 @@
 <body>
   <nav>
     <img class="bank-app" src="/images/BankApp.png" />
-
     <div class="nav-menu">
-      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link <%= title === 'Welcome To $BankApp' ? 'active' : '' %>" href="/">Home</a>
       <% if (user) { %>
-      <a class="nav-link" href="/accounts/new">Open Account</a>
-      <a class="nav-link" href="/accounts/transfer">Transfer Cash</a>
-      <a class="nav-link" href="/accounts">My Accounts</a>
+      <a class="nav-link <%= title === 'New Account Opening!' ? 'active' : '' %>" href="/accounts/new">Open Account</a>
+      <a class="nav-link <%= title === 'Account Transfers' ? 'active' : '' %>" href="/accounts/transfer">Transfer Cash</a>
+      <a class="nav-link <%= title === 'My Accounts' ? 'active' : '' %>" href="/accounts">My Accounts</a>
       <% } %>
-      <a class="nav-link" href="/bankapp">About $BankApp</a>
+      <a class="nav-link <%= title === 'About BankApp' ? 'active' : '' %>" href="/bankapp">About $BankApp</a>
     </div>
     <div class="sign-in">
       <% if (user) { %>

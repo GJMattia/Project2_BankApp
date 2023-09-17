@@ -14,11 +14,8 @@
     <h1 class="details-title">Account Balance:</h1>
     <h1 class="details-asset">$<%= account.balance %></h1>
   </div>
-
   <div class="account-actions">
-    <a class="action-link" href="/beneficiaries/new/<%= account._id %>"
-      >Add Beneficiary</a
-    >
+    <a class="action-link" href="/beneficiaries/new/<%= account._id %>">Add Beneficiary</a>
     <a class="action-link" href="/accounts/transfer">Transfer</a>
     <form action="/accounts/<%= account._id %>?_method=DELETE" method="POST">
       <button class="close-acc-btn" type="submit">Close Account</button>
@@ -46,17 +43,10 @@
           <td><%= formatDate(beneficiary.birthdate) %></td>
           <td><%= beneficiary.address %></td>
           <td>
-            <a
-              class="edit-ben"
-              href="/beneficiaries/<%= beneficiary._id %>/update"
-              >EDIT</a
-            >
+            <a class="edit-ben" href="/beneficiaries/<%= beneficiary._id %>/update">EDIT</a>
           </td>
           <td>
-            <form
-              action="/beneficiaries/<%= beneficiary._id %>?_method=DELETE"
-              method="POST"
-            >
+            <form action="/beneficiaries/<%= beneficiary._id %>?_method=DELETE" method="POST">
               <button class="remove-ben" type="submit">Remove</button>
             </form>
           </td>

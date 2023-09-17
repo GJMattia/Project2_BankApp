@@ -1,6 +1,5 @@
 <%- include('../partials/header') %>
 <h1 class="accounts-title">Account Transfers</h1>
-
 <div class="transfer-container ">
   <% if (error) { %>
   <div class="transfer-error">
@@ -10,35 +9,28 @@
   <div class="transfer-success">
     <h1> <%= success %> </h1>
   </div>
-
   <% } %>
-  <div class="transfer-message">
-    <h1>Please fill out the form to complete a transfer!</h1>
-  </div>
   <form class='transfer-div' action="/accounts/transfer/submit?_method=PUT" method="POST">
     <h3 class="transfer-label">TRANSFER FROM:</h3>
     <select class="transfer-asset" name="fromAccount">
       <option value="" disabled selected>Select an account</option>
       <% accounts.forEach(account => { %>
       <option value="<%= account._id %>">
-        Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
+        Acc#<%= account.accountNumber %> Bal$<%= account.balance %>
       </option>
       <% }); %>
     </select>
-
     <h3 class="transfer-label">TRANSFER TO:</h3>
     <select class="transfer-asset" name="toAccount">
       <option value="" disabled selected>Select an account</option>
       <% accounts.forEach(account => { %>
       <option value="<%= account._id %>">
-        Account# <%= account.accountNumber %> Balance: $<%= account.balance %>
+        Acc#<%= account.accountNumber %> Bal$<%= account.balance %>
       </option>
-
       <% }); %>
     </select>
-
     <h3 class="transfer-label">TRANSFER AMOUNT: <span class="transfer-dollar">$</span></h3>
-    <input class="transfer-amount" required pattern="[0-9]+" name="transferAmount" />
+    <input class="transfer-amount" required pattern="[0-9]+(\.[0-9]{1,2})?" name="transferAmount" />
     <button class="transfer-btn" type="submit">TRANSFER</button>
   </form>
 </div>

@@ -1,23 +1,16 @@
 <%- include('../partials/header') %>
 <h1 class="new-account-title">Add your beneficiary's information below!</h1>
 <div class="new-beneficiary-container">
-  <form  class="new-ben-form" action="/beneficiaries/<%= account._id %>" method="POST">
-    <label class="account-label">Beneficiary Name</label>
-    <input
-      class="account-asset"
-      name="name"/>
-    <label class="account-label">Beneficiary Address</label>
+  <form class="new-ben-form" action="/beneficiaries/<%= account._id %>" method="POST">
+    <label class="account-label">Beneficiary Name:</label>
+    <input class="account-asset" name="name" />
+    <label class="account-label">Beneficiary Address:</label>
     <input name="address" type="text" class="account-asset">
-    <label class="account-label">Birthdate</label>
-    <input
-      class="account-asset"
-      name="birthdate"
-      type='date'
-    />
+    <label class="account-label">Beneficiary Birthdate:</label>
+    <input class="account-asset" name="birthdate" type='date' value="1990-12-12" />
     <label class="account-label">For Account#</label>
     <h1 class="account-asset acc-num"> <%= account.accountNumber %></h1>
     <button class="add-ben-btn" type="submit">Add Beneficiary</button>
   </form>
 </div>
-
 <%- include('../partials/footer') %>
