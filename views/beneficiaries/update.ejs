@@ -3,7 +3,7 @@
 <div class="update-beneficiary-container">
   <form class="new-ben-form ben-update" action='/beneficiaries/<%= beneficiary._id %>/update/submit?_method=PUT' method="POST">
     <label class="account-label">Beneficiary Name:</label>
-    <input value="<%= beneficiary.name %>" class="account-asset" name="name" placeholder="Beneficiary Name" />
+    <input maxlength="25" value="<%= beneficiary.name %>" class="account-asset" name="name" placeholder="Beneficiary Name" />
     <label class="account-label">Beneficiary Phone Number#</label>
     <input value="<%= beneficiary.phoneNumber %>" name="phoneNumber" type="text" class="account-asset" maxlength="12" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}">
     <label class="account-label">Beneficiary Birthdate:</label>

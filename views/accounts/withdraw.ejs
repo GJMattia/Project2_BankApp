@@ -10,7 +10,7 @@
     <label class="withdraw-label">Account #</label>
     <div class="user-name account-asset"><%= account.accountNumber %></div>
     <label class="withdraw-label">Withdraw Amount:<span class="withdraw-dollar">$</span></label>
-    <input required pattern="[0-9]+(\.[0-9]{1,2})?" class="withdraw-amount" name="withdrawAmount" />
+    <input maxlength="8" required pattern="[0-9]+(\.[0-9]{1,2})?" class="withdraw-amount" name="withdrawAmount" />
     <button class="withdraw-btn" type="submit">Withdraw Funds</button>
   </form>
 </div>

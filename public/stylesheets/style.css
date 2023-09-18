@@ -204,13 +204,24 @@ footer {
 }
 
 .account-container {
+  margin: 4rem;
+  width: 110rem;
+}
+
+.single-column {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 0rem;
+  grid-row-gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.double-column {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0rem;
   grid-row-gap: 4rem;
   flex-wrap: wrap;
-  margin: 4rem;
-  width: 110rem;
 }
 
 .account-box {
@@ -1023,4 +1034,37 @@ td {
   position: relative;
   left: 5rem;
   font-size: 2rem;
+}
+
+@media (max-width: 1200px) {
+
+  /* Homepage */
+
+  .home-container {
+    justify-content: flex-start;
+    height: 100rem;
+  }
+
+  .home-container-title {
+    position: relative;
+    top: 0;
+  }
+
+  .account-showcase {
+    position: relative;
+    top: 3rem;
+    flex-direction: column;
+  }
+
+  .account-display {
+    margin: 2rem;
+  }
+
+  /* Account Showcase */
+
+  .double-column {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
 }

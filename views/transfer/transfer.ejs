@@ -30,7 +30,7 @@
       <% }); %>
     </select>
     <h3 class="transfer-label">TRANSFER AMOUNT: <span class="transfer-dollar">$</span></h3>
-    <input class="transfer-amount" required pattern="[0-9]+(\.[0-9]{1,2})?" name="transferAmount" />
+    <input class="transfer-amount" maxlength="8" required pattern="[0-9]+(\.[0-9]{1,2})?" name="transferAmount" />
     <button class="transfer-btn" type="submit">TRANSFER</button>
   </form>
 </div>

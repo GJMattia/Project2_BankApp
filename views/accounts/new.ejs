@@ -12,7 +12,7 @@
     <label class="account-label">Account number:</label>
     <input class="account-asset account-num" name="accountNumber" value="<%= generateAccountNumber %>" />
     <label class="account-label">Opening Balance: <span class="cash-span">$</span></label>
-    <input required pattern="[0-9]+(\.[0-9]{1,2})?" class="account-asset opening-bal" name="balance" />
+    <input required pattern="[0-9]+(\.[0-9]{1,2})?" maxlength="8" class="account-asset opening-bal" name="balance" />
     <button class="open-acc-btn" type="submit">Open Account</button>
   </form>
 </div>
