@@ -28,9 +28,9 @@ async function deposit(req, res) {
 async function depositFunds(req, res) {
     try {
         const account = await Account.findById(req.params.id);
-        const depositAmount = parseFloat(req.body.depositAmount);
+        const depositAmount = Number(req.body.depositAmount);
 
-        roundedDeposit = parseFloat(depositAmount.toFixed(2));
+        roundedDeposit = Number(depositAmount.toFixed(2));
         account.balance += roundedDeposit;
 
         await account.save();
@@ -52,7 +52,7 @@ async function depositFunds(req, res) {
 async function withdrawFunds(req, res) {
     try {
         const account = await Account.findById(req.params.id);
-        const withdrawAmount = parseFloat(req.body.withdrawAmount);
+        const withdrawAmount = Number(req.body.withdrawAmount);
         if (account.balance < withdrawAmount) {
             return res.render('accounts/withdraw', {
                 title: 'Withdraw Funds',
@@ -60,7 +60,7 @@ async function withdrawFunds(req, res) {
                 error: 'Error! Insufficient balance!'
             });
         };
-        roundedWithdraw = parseFloat(withdrawAmount.toFixed(2));
+        roundedWithdraw = Number(withdrawAmount.toFixed(2));
         account.balance -= withdrawAmount;
         await account.save();
         await History.create({

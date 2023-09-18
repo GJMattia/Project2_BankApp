@@ -12,7 +12,7 @@
     <h1 class="details-title">Account Number:</h1>
     <h1 class="details-asset"><%= account.accountNumber %></h1>
     <h1 class="details-title">Account Balance:</h1>
-    <h1 class="details-asset">$<%= account.balance %></h1>
+    <h1 class="details-asset">$<%= account.balance.toFixed(2) %></h1>
   </div>
   <div class="account-actions">
     <a class="action-link" href="/accounts/<%= account._id %>/deposit">Deposit Funds</a>
@@ -82,7 +82,7 @@
         <td class="<%=h.transactionType%>"> <%= h.transactionDescription %> </td>
         <td class="<%=h.transactionType%>"> <%=h.transactionType%> </td>
         <td class="<%=h.transactionType%>"> $<%=h.transactionAmount%> </td>
-        <td class="<%=h.transactionType%>"> $<%= h.balance %> </td>
+        <td class="<%=h.transactionType%>"> $<%= h.balance.toFixed(2) %> </td>
       </tr>
       <% }); %>
     </tbody>
