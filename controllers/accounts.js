@@ -1,5 +1,6 @@
 const Account = require('../models/account');
 const Beneficiary = require('../models/beneficiary');
+const History = require('../models/history');
 
 module.exports = {
     index,
@@ -50,6 +51,25 @@ async function transferCash(req, res) {
         //Updates schema info
         await fromAccount.save();
         await toAccount.save();
+
+        const fromHistory = await History.create({
+            transactionDate: new Date(),
+            transactionDescription: 'Transfer',
+            transactionType: 'Debit',
+            transactionAmount: req.body.transferAmount,
+            account: fromAccount._id,
+            balance: fromAccount.balance
+        });
+
+        const toHistory = await History.create({
+            transactionDate: new Date(),
+            transactionDescription: 'Transfer',
+            transactionType: 'Credit',
+            transactionAmount: req.body.transferAmount,
+            account: toAccount._id,
+            balance: toAccount.balance
+        });
+
         return res.render('transfer/transfer', {
             title: 'Account Transfers',
             accounts: await Account.find({}),
@@ -81,7 +101,16 @@ function newAccount(req, res) {
 async function create(req, res) {
     try {
         req.body.user = req.user._id;
-        await Account.create(req.body);
+        const account = await Account.create(req.body);
+
+        await History.create({
+            transactionDate: new Date(),
+            transactionDescription: 'Opening Balance',
+            transactionType: 'Credit',
+            transactionAmount: req.body.balance,
+            account: account._id,
+            balance: req.body.balance
+        });
 
         res.redirect('/accounts');
     } catch (err) {
@@ -98,7 +127,8 @@ async function show(req, res) {
     try {
         const account = await Account.findById(req.params.id);
         const beneficiaries = await Beneficiary.find({ account: account._id });
-        res.render('accounts/show', { title: 'Account Details', account, beneficiaries, formatDate });
+        const history = await History.find({ account: account._id });
+        res.render('accounts/show', { title: 'Account Details', account, beneficiaries, formatDate, history });
     } catch (err) {
         console.error(err);
     };

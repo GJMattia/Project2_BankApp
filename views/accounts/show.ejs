@@ -54,10 +54,37 @@
         <% }); %>
       </tbody>
     </table>
-    <h5>CAUTION: removing a beneficiary will take affect immeditetly</h5>
+    <h5>CAUTION: Removing a beneficiary will take effect immediately.</h5>
   </div>
-</div>
 <% } else { %>
 <h2 class="no-ben">This account has no beneficiaries.</h2>
+<% } %> 
+<div class="history-title">
+  <h1>Transaction History</h1>
 </div>
-<% } %> <%- include('../partials/footer') %>
+<div class="history-display">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% history.reverse().forEach((h) => { %>
+      <tr>
+        <td class="<%=h.transactionType%>"> <%= formatDate(h.transactionDate) %> </td>
+        <td class="<%=h.transactionType%>"> <%= h.transactionDescription %> </td>
+        <td class="<%=h.transactionType%>"> <%=h.transactionType%> </td>
+        <td class="<%=h.transactionType%>"> $<%=h.transactionAmount%> </td>
+        <td class="<%=h.transactionType%>"> $<%= h.balance %> </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+</div>
+<%- include('../partials/footer') %>
