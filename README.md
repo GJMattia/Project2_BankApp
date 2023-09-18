@@ -25,10 +25,8 @@ $BankApp is a user-friendly online banking platform. To start, visit the homepag
 
 ## Next Steps
 
-Version 2.0:
-
-- As a user I want there to be transaction history on each account.
-- As a user I want to be able to withdraw/deposit funds on accounts.
+- As a user I want there to be compounding monthly interest rates on my saving account.
+- As a user I want there to be overdraft protection options.
 - As a user I want a profile with customization.
 - As a user I want there to be a way to open up a credit card and simulate those unique actions.
 

@@ -15,8 +15,10 @@
     <h1 class="details-asset">$<%= account.balance %></h1>
   </div>
   <div class="account-actions">
-    <a class="action-link" href="/beneficiaries/new/<%= account._id %>">Add Beneficiary</a>
-    <a class="action-link" href="/accounts/transfer">Transfer</a>
+    <a class="action-link" href="/accounts/<%= account._id %>/deposit">Deposit Funds</a>
+    <a class="action-link" href="/accounts/<%= account._id %>/withdraw">Withdraw Funds</a>
+    <a class="action-link" href="/accounts/transfer">Transfer Funds</a>
+    <a class="action-link ben-link" href="/beneficiaries/new/<%= account._id %>">Add Beneficiary</a>
     <form action="/accounts/<%= account._id %>?_method=DELETE" method="POST">
       <button class="close-acc-btn" type="submit">Close Account</button>
     </form>

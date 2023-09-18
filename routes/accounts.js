@@ -17,4 +17,14 @@ router.post('/', accountsCtrl.create);
 
 router.delete('/:id', accountsCtrl.deleteAccount);
 
+router.get('/:id/deposit', accountsCtrl.deposit);
+
+router.put('/:id/deposit/submit', accountsCtrl.depositFunds);
+
+router.get('/:id/withdraw', accountsCtrl.withdraw);
+
+router.put('/:id/withdraw/submit', accountsCtrl.withdrawFunds);
+
+
+
 module.exports = router; 

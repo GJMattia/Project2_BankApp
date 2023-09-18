@@ -9,7 +9,75 @@ module.exports = {
     show,
     transfer,
     transferCash,
-    deleteAccount
+    deleteAccount,
+    withdraw,
+    withdrawFunds,
+    deposit,
+    depositFunds
+};
+
+async function deposit(req, res) {
+    try {
+        const account = await Account.findById(req.params.id);
+        res.render('accounts/deposit', { title: 'Deposit Funds', account });
+    } catch (err) {
+        console.error(err);
+    };
+};
+
+async function depositFunds(req, res) {
+    try {
+        const account = await Account.findById(req.params.id);
+        const depositAmount = parseInt(req.body.depositAmount);
+        account.balance += depositAmount;
+        await account.save();
+        await History.create({
+            transactionDate: new Date(),
+            transactionDescription: 'Deposit',
+            transactionType: 'Credit',
+            transactionAmount: req.body.depositAmount,
+            account: account._id,
+            balance: account.balance
+        });
+        res.redirect(`/accounts/${account._id}`);
+    } catch (err) {
+        console.error(err)
+    };
+};
+
+
+async function withdrawFunds(req, res) {
+    try {
+        const account = await Account.findById(req.params.id);
+        const withdrawAmount = req.body.withdrawAmount;
+
+        if (account.balance < withdrawAmount) {
+            res.redirect(`/accounts/${account._id}`);
+        }
+
+        account.balance -= withdrawAmount;
+        await account.save();
+        await History.create({
+            transactionDate: new Date(),
+            transactionDescription: 'Withdrawal',
+            transactionType: 'Debit',
+            transactionAmount: req.body.withdrawAmount,
+            account: account._id,
+            balance: account.balance
+        });
+        res.redirect(`/accounts/${account._id}`);
+    } catch (err) {
+        console.error(err)
+    };
+};
+
+async function withdraw(req, res) {
+    try {
+        const account = await Account.findById(req.params.id);
+        res.render('accounts/withdraw', { title: 'Withdraw Funds', account });
+    } catch (err) {
+        console.error(err);
+    };
 };
 
 async function deleteAccount(req, res) {

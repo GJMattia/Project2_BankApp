@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<h1 class="new-account-title">Deposit Funds</h1>
+<div class="withdraw-container">
+  <form class="withdraw-form" action="/accounts/<%= account._id %>/deposit/submit?_method=PUT" method="POST">
+    <label class="withdraw-label">Account #</label>
+    <div class="user-name account-asset"><%= account.accountNumber %></div>
+    <label class="withdraw-label">Deposit Amount:<span class="deposit-dollar">$</span></label>
+    <input required pattern="[0-9]+(\.[0-9]{1,2})?" class="withdraw-amount" name="depositAmount" />
+    <button class="withdraw-btn" type="submit">Deposit Funds</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>
