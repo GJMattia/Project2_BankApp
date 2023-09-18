@@ -13,7 +13,7 @@ async function updateBeneficiary(req, res) {
     try {
         const beneficiary = await Beneficiary.findById(req.params.id);
         beneficiary.name = req.body.name;
-        beneficiary.address = req.body.address;
+        beneficiary.phoneNumber = req.body.phoneNumber;
         beneficiary.birthdate = req.body.birthdate;
         await beneficiary.save();
         res.redirect(`/accounts/${beneficiary.account}`);
@@ -39,13 +39,13 @@ async function newBeneficiary(req, res) {
 
 async function create(req, res) {
     const accountId = req.params.id;
-    const { name, birthdate, address } = req.body;
+    const { name, birthdate, phoneNumber } = req.body;
 
     try {
         const beneficiary = new Beneficiary({
             account: accountId,
             name,
-            address,
+            phoneNumber,
             birthdate: new Date(birthdate).getTime()
         });
         await beneficiary.save();

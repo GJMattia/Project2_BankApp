@@ -9,7 +9,7 @@ const beneficiarySchema = new Schema({
     birthdate: {
         type: Date
     },
-    address: {
+    phoneNumber: {
         type: String
     },
     account: {

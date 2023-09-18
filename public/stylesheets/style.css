@@ -475,7 +475,7 @@ footer {
   border-radius: 1rem;
   font-weight: 900;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 
@@ -485,7 +485,7 @@ footer {
 
 .close-acc-btn {
   width: 15rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 900;
   color: white;
@@ -619,7 +619,8 @@ td {
 
 .no-ben {
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
 }
 
 /*  ADD BENEFICIARY */

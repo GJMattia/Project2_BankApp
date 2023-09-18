@@ -41,9 +41,13 @@ async function transferCash(req, res) {
                 success: null
             });
         };
-
+        //performs inital operations
         fromAccount.balance -= transferAmount;
         toAccount.balance += transferAmount;
+        //Rounds numbers
+        fromAccount.balance = parseFloat(fromAccount.balance.toFixed(2));
+        toAccount.balance = parseFloat(toAccount.balance.toFixed(2));
+        //Updates schema info
         await fromAccount.save();
         await toAccount.save();
         return res.render('transfer/transfer', {

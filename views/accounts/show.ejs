@@ -31,7 +31,7 @@
         <tr>
           <th>Beneficiary Name</th>
           <th>Beneficiary Birthdate</th>
-          <th>Beneficiary Address</th>
+          <th>Beneficiary Phone Number</th>
           <th>Update Info</th>
           <th>Remove</th>
         </tr>
@@ -41,7 +41,7 @@
         <tr>
           <td><%= beneficiary.name %></td>
           <td><%= formatDate(beneficiary.birthdate) %></td>
-          <td><%= beneficiary.address %></td>
+          <td><%= beneficiary.phoneNumber %></td>
           <td>
             <a class="edit-ben" href="/beneficiaries/<%= beneficiary._id %>/update">EDIT</a>
           </td>
