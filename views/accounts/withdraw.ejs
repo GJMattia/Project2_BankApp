@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 <h1 class="new-account-title">Withdraw Funds</h1>
 <div class="withdraw-container">
+  <% if (error) { %>
+    <div class="transfer-error">
+      <h1> <%= error %> </h1>
+    </div>
+    <% } %>
   <form class="withdraw-form" action="/accounts/<%= account._id %>/withdraw/submit?_method=PUT" method="POST">
     <label class="withdraw-label">Account #</label>
     <div class="user-name account-asset"><%= account.accountNumber %></div>

@@ -5,7 +5,7 @@
     <label class="account-label">Beneficiary Name:</label>
     <input value="<%= beneficiary.name %>" class="account-asset" name="name" placeholder="Beneficiary Name" />
     <label class="account-label">Beneficiary Phone Number#</label>
-    <input value="<%= beneficiary.phoneNumber %>" name="phoneNumber" type="text" class="account-asset" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}">
+    <input value="<%= beneficiary.phoneNumber %>" name="phoneNumber" type="text" class="account-asset" maxlength="12" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}">
     <label class="account-label">Beneficiary Birthdate:</label>
     <input class="account-asset" name="birthdate" type='date' value="<%= formatDate(beneficiary.birthdate) %>" />
     <button class="add-ben-btn" type="submit">Update Info</button>

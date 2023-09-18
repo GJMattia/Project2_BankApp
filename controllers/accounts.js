@@ -28,8 +28,11 @@ async function deposit(req, res) {
 async function depositFunds(req, res) {
     try {
         const account = await Account.findById(req.params.id);
-        const depositAmount = parseInt(req.body.depositAmount);
-        account.balance += depositAmount;
+        const depositAmount = parseFloat(req.body.depositAmount);
+
+        roundedDeposit = parseFloat(depositAmount.toFixed(2));
+        account.balance += roundedDeposit;
+
         await account.save();
         await History.create({
             transactionDate: new Date(),
@@ -49,12 +52,15 @@ async function depositFunds(req, res) {
 async function withdrawFunds(req, res) {
     try {
         const account = await Account.findById(req.params.id);
-        const withdrawAmount = req.body.withdrawAmount;
-
+        const withdrawAmount = parseFloat(req.body.withdrawAmount);
         if (account.balance < withdrawAmount) {
-            res.redirect(`/accounts/${account._id}`);
-        }
-
+            return res.render('accounts/withdraw', {
+                title: 'Withdraw Funds',
+                account,
+                error: 'Error! Insufficient balance!'
+            });
+        };
+        roundedWithdraw = parseFloat(withdrawAmount.toFixed(2));
         account.balance -= withdrawAmount;
         await account.save();
         await History.create({
@@ -74,7 +80,7 @@ async function withdrawFunds(req, res) {
 async function withdraw(req, res) {
     try {
         const account = await Account.findById(req.params.id);
-        res.render('accounts/withdraw', { title: 'Withdraw Funds', account });
+        res.render('accounts/withdraw', { title: 'Withdraw Funds', account, error: null });
     } catch (err) {
         console.error(err);
     };
