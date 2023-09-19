@@ -96,7 +96,7 @@ async function transferCash(req, res) {
     try {
         const fromAccountId = req.body.fromAccount;
         const toAccountId = req.body.toAccount;
-        const transferAmount = parseFloat(req.body.transferAmount);
+        const transferAmount = Number(req.body.transferAmount);
         const fromAccount = await Account.findOne({ _id: fromAccountId });
         const toAccount = await Account.findOne({ _id: toAccountId });
 
@@ -120,8 +120,8 @@ async function transferCash(req, res) {
         fromAccount.balance -= transferAmount;
         toAccount.balance += transferAmount;
         //Rounds numbers
-        fromAccount.balance = parseFloat(fromAccount.balance.toFixed(2));
-        toAccount.balance = parseFloat(toAccount.balance.toFixed(2));
+        fromAccount.balance = Number(fromAccount.balance);
+        toAccount.balance = Number(toAccount.balance);
         //Updates schema info
         await fromAccount.save();
         await toAccount.save();
