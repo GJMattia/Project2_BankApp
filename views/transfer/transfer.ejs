@@ -15,18 +15,22 @@
     <select class="transfer-asset" name="fromAccount">
       <option value="" disabled selected>Select an account</option>
       <% accounts.forEach(account => { %>
+        <% if (user?._id.equals(account.user)) { %>
       <option value="<%= account._id %>">
         Acc#<%= account.accountNumber %> Bal$<%= account.balance.toFixed(2) %>
       </option>
+      <% } %> 
       <% }); %>
     </select>
     <h3 class="transfer-label">TRANSFER TO:</h3>
     <select class="transfer-asset" name="toAccount">
       <option value="" disabled selected>Select an account</option>
       <% accounts.forEach(account => { %>
+        <% if (user?._id.equals(account.user)) { %>
       <option value="<%= account._id %>">
         Acc#<%= account.accountNumber %> Bal$<%= account.balance.toFixed(2) %>
       </option>
+      <% } %> 
       <% }); %>
     </select>
     <h3 class="transfer-label">TRANSFER AMOUNT: <span class="transfer-dollar">$</span></h3>
